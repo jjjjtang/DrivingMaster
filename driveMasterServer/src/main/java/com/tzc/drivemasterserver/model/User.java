@@ -1,14 +1,15 @@
 package com.tzc.drivemasterserver.model;
 
-public class Login {
-    private Long userId;  // 改为 userId，对应数据库的 user_id
+public class User {
+    private Long userId;
     private String username;
     private String password;
     private String avatar;
     private String email;
     private String admin;
+    private Double average_score;
+    private Long total_num;
 
-    // getter 和 setter 方法
     public Long getUserId() {
         return userId;
     }
@@ -55,5 +56,21 @@ public class Login {
 
     public void setAdmin(String admin) {
         this.admin = admin;
+    }
+
+    public Double getAverage_score() {
+        return average_score;
+    }
+
+    public void setAverage_score(Double average_score) {
+        this.average_score = average_score;
+    }
+
+    public Long getTotal_num() {
+        return total_num;
+    }
+
+    public void setTotal_num(Long total_num) {
+        this.total_num = total_num;
     }
 }

@@ -2,6 +2,7 @@ package com.tzc.drivemasterserver.controller;
 
 import com.tzc.drivemasterserver.model.Question;
 import com.tzc.drivemasterserver.model.dao.QuestionRequest;
+import com.tzc.drivemasterserver.service.LogService;
 import com.tzc.drivemasterserver.service.QuestionService;
 import jakarta.annotation.Resource;
 import org.springframework.web.bind.annotation.*;
@@ -16,6 +17,9 @@ public class QuestionController {
     @Resource
     private QuestionService questionService;
 
+    @Resource
+    private LogService logService;
+
     /***
      * 添加题目
      * @param question
@@ -23,7 +27,7 @@ public class QuestionController {
      */
     @PostMapping("/add")
     public boolean addQuestion(@RequestBody Question question) {
-        System.out.println(">>> type = " + question.getType());
+        logService.addLog("添加题目: " + question.getContent(), null, null);
         return questionService.addQuestion(question);
     }
 
@@ -32,6 +36,7 @@ public class QuestionController {
      */
     @PostMapping("/update")
     public boolean updateQuestion(@RequestBody QuestionRequest questionRequest) {
+        logService.addLog("修改题目 ID: " + questionRequest.getQuestionId(), null, null);
         return questionService.updateQuestion(questionRequest);
     }
 
@@ -40,6 +45,7 @@ public class QuestionController {
      */
     @GetMapping("/delete/{id}")
     public boolean deleteQuestion(@PathVariable("id") Long id) {
+        logService.addLog("删除题目 ID: " + id, null, null);
         return questionService.deleteQuestion(id);
     }
 

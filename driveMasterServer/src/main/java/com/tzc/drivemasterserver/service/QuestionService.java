@@ -16,8 +16,6 @@ public class QuestionService {
     @Resource
     private QuestionMapper questionMapper;
 
-    @Resource
-    private LogMapper logMapper;
 
     /**
      * 新增题目
