@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <gradient
+        android:startColor="@color/primary_yellow"
+        android:endColor="@color/primary_yellow_dark"
+        android:angle="90" />
+    <corners android:radius="28dp" />
+    <stroke
+        android:width="1dp"
+        android:color="@color/primary_yellow_dark" />
+
+    <!-- 添加内边距确保文字不被裁剪 -->
+    <padding
+        android:left="8dp"
+        android:top="14dp"
+        android:right="8dp"
+        android:bottom="14dp" />
+</shape>
